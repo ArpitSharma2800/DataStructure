@@ -53,15 +53,9 @@ class LinkedList
 };
 int main()
 {
-    //comment
-    int i,k;
     LinkedList L;
-    for(i=0;i<5;i++)
-    {
-        cin>>k;
         L.insertStart(k);
-    }
-    //L.insertStart(5);
+    
     L.displayAll();
     
     return 0;
