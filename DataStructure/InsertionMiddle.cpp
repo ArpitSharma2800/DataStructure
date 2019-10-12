@@ -24,7 +24,7 @@ class LinkedList
     {
         head = NULL;
     }
-    void insertStart(int value)
+     void insertStart(int value)
     {
         node *n1 = createNode(value);
         if(head == NULL)
@@ -34,6 +34,24 @@ class LinkedList
         }
         n1->next = head;
         head = n1;
+    }
+    void insertMiddle(int value, int loc)
+    {
+        int i;
+        node *n1 = createNode(value);
+        if(head == NULL)
+        {
+            head = n1;
+            return;
+        }
+        node *temp1 = head, *temp2=head;
+        for(i=0;i<loc;i++)
+        {
+            temp1 = temp2;
+            temp2 = temp2->next;
+        }
+        temp1->next = n1;
+        n1->next = temp2;
     }
      void displayAll()
     {
@@ -54,9 +72,12 @@ class LinkedList
 int main()
 {
     LinkedList L;
-        L.insertStart(5);
-    
+    L.insertStart(5);
+    L.insertStart(5);
+    L.insertStart(5);
+    L.insertStart(5);
+    L.insertStart(5);
+    L.insertMiddle(7,2);
     L.displayAll();
-    
     return 0;
 }
