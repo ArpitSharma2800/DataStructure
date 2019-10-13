@@ -54,7 +54,7 @@ class LinkedList
 int main()
 {
     LinkedList L;
-        L.insertStart(5);
+        L.insertStart(7);
     
     L.displayAll();
     
