@@ -23,7 +23,7 @@ class LinkedList
     {
         head = NULL;
     }
-    public:
+    
     void insertStart(int value)
     {
         node *n1 = createNode(value);

@@ -33,7 +33,7 @@ class LinkedList
             return;
         }
         node *ptr = head;
-        while(ptr!= NULL)
+        while(ptr->next != NULL)
         {
             ptr = ptr->next;
         }
