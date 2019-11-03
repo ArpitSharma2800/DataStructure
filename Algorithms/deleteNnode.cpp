@@ -1,11 +1,10 @@
-#include <bits/stdc++.h>
-
+#include <iostream>
 using namespace std;
 
 struct node
 {
     int value;
-    struct node *next;
+    node *next;
 };
 
 node *createNode(int value)
@@ -25,6 +24,7 @@ public:
     {
         head = NULL;
     }
+
     void insertStart(int value)
     {
         node *n1 = createNode(value);
@@ -36,43 +36,35 @@ public:
         n1->next = head;
         head = n1;
     }
-
-    void insertback(int value)
+    void deleteEnd(int n)
     {
-        node *n1 = createNode(value);
+        int i;
+
         if (head == NULL)
         {
-            head = n1;
-            return;
+            cout << "UNDERFLOW" << endl;
         }
-        node *ptr = head;
-        while (ptr->next != NULL)
+        else
         {
-            ptr = ptr->next;
-        }
-        ptr->next = n1;
-    }
-
-    void givenNode(int x, int y)
-    {
-        node *ptr = head;
-        node *k = new node();
-        k->value = y;
-
-        while (ptr->next != NULL)
-        {
-            if (ptr->value == x)
+            for (i = 0; i < n; i++)
             {
-                k->next = ptr->next;
-                ptr->next = k;
-                return;
+                node *temp = head, *temp2 = head;
+                if (head->next == NULL)
+                {
+                    head = NULL;
+                    free(temp);
+                    return;
+                }
+                while (temp->next != NULL)
+                {
+                    temp2 = temp;
+                    temp = temp->next;
+                }
+                temp2->next = NULL;
+                free(temp);
             }
-
-            ptr = ptr->next;
         }
     }
-
-    // display linked list
 
     void displayAll()
     {
@@ -89,21 +81,15 @@ public:
             cout << endl;
         }
     }
-};
+} L;
 int main()
 {
-
-    LinkedList L;
-
     L.insertStart(1);
-    L.insertback(2);
-    L.insertback(3);
-    L.insertback(4);
-    L.insertback(5);
-    L.insertback(6);
-    L.givenNode(2, 8);
-    // L.middleElement();
+    L.insertStart(2);
+    L.insertStart(3);
+    L.insertStart(7);
+    L.insertStart(7);
+    L.insertStart(7);
+    L.deleteEnd(5);
     L.displayAll();
-
-    return 0;
 }

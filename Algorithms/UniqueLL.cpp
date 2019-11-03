@@ -53,22 +53,29 @@ public:
         ptr->next = n1;
     }
 
-    void givenNode(int x, int y)
+    void uniqueLL()
     {
-        node *ptr = head;
-        node *k = new node();
-        k->value = y;
+        node *ptr1, *ptr2, *dup;
+        ptr1 = head;
 
-        while (ptr->next != NULL)
+        while (ptr1 != NULL && ptr1->next != NULL)
         {
-            if (ptr->value == x)
-            {
-                k->next = ptr->next;
-                ptr->next = k;
-                return;
-            }
+            ptr2 = ptr1;
 
-            ptr = ptr->next;
+            while (ptr2->next != NULL)
+            {
+
+                if (ptr1->value == ptr2->next->value)
+                {
+
+                    dup = ptr2->next;
+                    ptr2->next = ptr2->next->next;
+                    delete (dup);
+                }
+                else
+                    ptr2 = ptr2->next;
+            }
+            ptr1 = ptr1->next;
         }
     }
 
@@ -98,10 +105,10 @@ int main()
     L.insertStart(1);
     L.insertback(2);
     L.insertback(3);
-    L.insertback(4);
+    L.insertback(1);
     L.insertback(5);
-    L.insertback(6);
-    L.givenNode(2, 8);
+    L.insertback(5);
+    L.uniqueLL();
     // L.middleElement();
     L.displayAll();
 
