@@ -1,8 +1,3 @@
-//  the question was generate a program for a singly linked list, find middle of the linked list.
-// If there are even nodes, then print second middle element.
-// For example, if given linked list is 1->2->3->4->5 then output should be 3.
-// If there are even nodes, then there would be two middle nodes, we need to print second middle element.
-// For example, if given linked list is 1->2->3->4->5->6 then output should be 4.
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -62,17 +57,23 @@ public:
 
     // Finding middle element of the given linked list
 
-    void middleElement()
+    void givenNode(int x, int y)
     {
-        node *temp = head;
-        node *temp2 = head;
+        node *ptr = head;
+        node *k = new node();
+        k->value = y;
 
-        while (temp != NULL && temp->next != NULL)
+        while (ptr->next != NULL)
         {
-            temp = temp->next->next;
-            temp2 = temp2->next;
+            if (ptr->value == x)
+            {
+                k->next = ptr->next;
+                ptr->next = k;
+                return;
+            }
+
+            ptr = ptr->next;
         }
-        cout << temp2->value;
     }
 
     // display linked list
@@ -95,6 +96,7 @@ public:
 };
 int main()
 {
+
     LinkedList L;
 
     L.insertStart(1);
@@ -103,9 +105,9 @@ int main()
     L.insertback(4);
     L.insertback(5);
     L.insertback(6);
+    L.givenNode(2, 8);
+    // L.middleElement();
     L.displayAll();
-    L.middleElement();
-    // L.displayAll();
 
     return 0;
 }
