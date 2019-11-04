@@ -59,7 +59,7 @@ public:
         node *k = new node();
         k->value = y;
 
-        while (ptr->next != NULL)
+        while (ptr != NULL)
         {
             if (ptr->value == x)
             {

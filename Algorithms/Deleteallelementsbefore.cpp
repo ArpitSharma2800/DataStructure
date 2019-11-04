@@ -67,24 +67,6 @@ public:
             ptr = ptr->next;
         }
     }
-
-    // display linked list
-
-    // void displayAll()
-    // {
-    //     if (head == NULL)
-    //         cout << "UnderFlow";
-    //     else
-    //     {
-    //         node *ptr = head;
-    //         while (ptr != NULL)
-    //         {
-    //             cout << ptr->value << "->";
-    //             ptr = ptr->next;
-    //         }
-    //         cout << endl;
-    //     }
-    // }
 };
 int main()
 {
@@ -98,8 +80,5 @@ int main()
     L.insertback(5);
     L.insertback(6);
     L.givenNode(4);
-    // L.middleElement();
-    // L.displayAll();
-
     return 0;
 }

@@ -19,6 +19,7 @@ int main()
 {
     int arr[10], i, n, x;
     cin >> n;
+    cin >> x;
     for (i = 0; i < n; i++)
     {
         cin >> arr[i];
