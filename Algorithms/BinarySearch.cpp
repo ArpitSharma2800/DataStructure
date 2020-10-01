@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-int BinarySearch(int arr[], int l, int r, int x)
+int BinarySearchFastFast(int arr[], int l, int r, int x)
 {
     if (r >= l)
     {
@@ -24,5 +24,5 @@ int main()
     {
         cin >> arr[i];
     }
-    BinarySearch(arr, 0, n - 1, x);
+    BinarySearchFastFast(arr, 0, n - 1, x);
 }
